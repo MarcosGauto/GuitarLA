@@ -9,9 +9,11 @@ function App() {
 
   function addToCart (item) {   // inmutable: signifa que nos va a modificar el arreglo, es decir con el setcard esta tomando una copia del state y agregando al carrito
                                 // si lo hiciera con el .push estaria modificando el arreglo, siempre tiene que ser inmutable
-
-    const itemExists =cart.findIndex(guitar => guitar.id === item.id) // esto va a iterar sobre nuestro carrito de compras y va a crear un bojeto temporal llamado guitar
+    const itemExists = cart.findIndex(guitar => guitar.id === item.id) // esto va a iterar sobre nuestro carrito de compras y va a crear un bojeto temporal llamado guitar
     if(itemExists >= 0){ // aca dice que si es menor o igual a cero ya existe
+      const updateCart = [...cart] // tomamos una copia de cart para no modificar el state
+      updateCart[itemExists].quantity++
+      setCart(updateCart)
     } else{
       item.quantity = 1
       setCart(prevCart => [...prevCart, item]); //va a tomar el carrito previo a cambiar y sumarle
@@ -23,7 +25,9 @@ function App() {
   return (
     <>
 
-    <Header />
+    <Header 
+      cart={cart}
+    />
 
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>

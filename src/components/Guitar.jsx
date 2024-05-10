@@ -4,9 +4,7 @@ function Guitar({guitar, addToCard}) {
 
     const {id, name, image, description, price} = guitar // se hizo una destruction del props
 
-    const handleClick = (guitar) => { //le avisa que va a tomar el id, se reemplazo ID por guitar para avisar que tiene que tomar todos los datos
-        setCart(guitar)
-    }
+
 
     return(
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
