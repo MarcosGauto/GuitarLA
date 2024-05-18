@@ -1,6 +1,6 @@
 
 // en img src se pone llaves con un template para indicarle de donde viene la imagen
-function Guitar({guitar, addToCard}) {  
+function Guitar({guitar, addToCart}) {  
 
     const {id, name, image, description, price} = guitar // se hizo una destruction del props
 
@@ -18,7 +18,7 @@ function Guitar({guitar, addToCard}) {
             <button 
                 type="button"
                 className="btn btn-dark w-100"
-                onClick={ ()=> addToCard(guitar)}  //nombre de la funcion cuando el usuario ejecute el boton,  llama al carrito setado
+                onClick={ ()=> addToCart(guitar)}  //nombre de la funcion cuando el usuario ejecute el boton,  llama al carrito setado
                                             //si toma una funcion hay que colocar un callback para que no se llame en automatico sino que espere el evento es decir una funcion ()=>
             >Agregar al Carrito</button>
         </div>
