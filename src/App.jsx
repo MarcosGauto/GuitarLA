@@ -4,8 +4,14 @@ import Guitar from "./components/Guitar";
 import { db } from "./data/db";
 
 function App() {
+
+const initialCart = () => { //se genera para saber el valor inicial y sino ponerlo en el arreglo vacio
+  const localStorageCart = localStorage.getItem(`cart`) // recupera del localsotrage y con getitem para obtener el carrito
+  return localStorageCart ? JSON.parse(localStorageCart) : [] //ponemos el return para saber si el carrito tiene algo entonces convertilo en un string y devuelta en un arreglo, y en caso que no haya nada en arreglo vacio
+  }
+
   const [data, setData] =useState (db)
-  const [cart, setCart] =useState([])
+  const [cart, setCart] =useState(initialCart)
 
   const MAXITEMS = 5
   const MINITEMS = 1
