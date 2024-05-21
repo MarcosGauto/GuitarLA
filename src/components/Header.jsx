@@ -1,15 +1,7 @@
-import { useMemo } from "react";
 
-useMemo
+function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmty, cartTotal }) {
 
-function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }) {
-
-    // state derivado
-    const isEmty = useMemo (() => cart.length === 0, [cart]) //toma dos parametros,le esta diciendo que el codigo no se ejecuta hasta que no cambie, y  solamente hagas render cuando el carrito cambie(es decir cuando agregues o elimines guitarras)
-    const cartTotal = useMemo( () => cart.reduce( (total, item) => total + (item.quantity * item.price), 0),[cart] )// reduce te toma dos parametros, es decir total el total y lo multiplica por el item y como segunda funcion es recordar lo realizo anteriormente y sumarlo al otro item que se agrego en el carrito
-    //cero es el valor inicial
-
-    return (
+        return (
         <header className="py-5 header">
             <div className="container-xl">
                 <div className="row justify-content-center justify-content-md-between">
